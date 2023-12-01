@@ -1,0 +1,2 @@
+INSTANCE_TYPE: "t3.medium"
+DISK_SIZE: "100gb"

@@ -2,6 +2,8 @@
   hosts: all
   vars:
     URL: play.google.com  # Declaring the variable at play-level, all the tasks of this play inherits this value. 
+  vars_files: 
+    - "{{ENV}}.yaml"
   tasks: 
     - name: Printing the variable
       ansible.builtin.debug:
@@ -15,8 +17,16 @@
     
     - name: Printing the variable from command line
       ansible.builtin.debug:
-        msg: Value of the xyz is {{xyz}}
+        msg: Value of xyz is {{xyz}}
+    
+    - name: Printing the variable from command line
+      ansible.builtin.debug:
+        msg: Value of xyz is {{xyz}}
+
+    - name: Printing ENV Specific Values 
+      ansible.builtin.debug:
+        msg: "Instance Type is {{INSTANCE_TYPE}} and disk size is {{DISK_SIZE}}"
 
 # In ansible  if u attempt to pring a variable which is not declared, it will throw an error
 
-# Variable Precedence : Local Varaibles > Global Variables
+# Variable Precedence : Command Line Variables > Local Varaibles > Global Variables
