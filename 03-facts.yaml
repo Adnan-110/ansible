@@ -13,7 +13,7 @@
         msg: OS Distribution is {{ansible_distribution}}
     - name: Printing the UUIDs
       ansible.builtin.debug:
-        msg: UUID is {{ansible_devices.partitions.uuids}}
+        msg: UUID is {{ansible_devices.xvda.partitions.xvda1.links.uuids}}
 
 - name: Demo on Facts
   hosts: prod
