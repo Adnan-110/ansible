@@ -11,4 +11,6 @@
 
     - name: Printing the System Uptime
       ansible.builtin.debug:
-        msg: "System Uptime is {{OUT}}"  
+        msg: "System Uptime is {{OUT}}" # This will print the output but it will have alot more extraa details which are maybe un-necessary.
+#so if you want to print the standart output like you get when executing uptime cmd in linux terminal you can do like below
+        msg: "System Uptime is {{OUT.stdout}}"
