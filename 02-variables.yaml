@@ -3,7 +3,11 @@
   vars:
     URL: play.google.com  # Declaring the variable at play-level, all the tasks of this play inherits this value. 
   tasks: 
-    - name: Printing the variables
+    - name: Printing the variable
+      ansible.builtin.debug:
+        msg: Value of the URL is {{URL}}
+
+    - name: Printing the variable
       ansible.builtin.debug:
         msg: Value of the URL is {{URL}}  # In Yaml to print variables we have to enclose them in double {{}} baraces
       vars:                               # Declaring the variable at task level, which means local variable
