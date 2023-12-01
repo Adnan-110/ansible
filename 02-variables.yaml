@@ -1,0 +1,9 @@
+- name: Demo on variables usage 
+  hosts: all
+  vars:
+    URL: play.google.com
+  tasks: 
+    - name: Printing the variables
+      ansible.builtin.debug:
+        msg: value of the URL is {{URL}}  #In Yaml to print variables we have to enclose them in double {{}} baraces
+        
