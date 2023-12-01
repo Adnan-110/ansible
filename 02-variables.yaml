@@ -1,9 +1,12 @@
 - name: Demo on variables usage 
   hosts: all
   vars:
-    URL: play.google.com
+    URL: play.google.com  # Declaring the variable at play-level, all the tasks of this play inherits this value. 
   tasks: 
     - name: Printing the variables
       ansible.builtin.debug:
-        msg: value of the URL is {{URL}}  #In Yaml to print variables we have to enclose them in double {{}} baraces
-        
+        msg: Value of the URL is {{URL}}  # In Yaml to print variables we have to enclose them in double {{}} baraces
+      vars:                               # Declaring the variable at task level, which means local variable
+        URL: task.google.com 
+
+#In ansible  if u attempt to pring a variable which is not declared, it will throw an error
