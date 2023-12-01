@@ -1,0 +1,14 @@
+- name: Demo on privilege Escalation
+  hosts: all 
+  become: yes     #This will run the playbook as sudo/root user : All the tasks of the playbook will be executed as root user
+  tasks: 
+    - name: Running uptime command 
+      ansible.builtin.shell: id            
+      register: OUT                            
+
+    - name: Printing User Details 
+      ansible.builtin.debug:
+        msg: "username is {{OUT.stdout}}"
+      # become_user: userName    
+
+      #In case if you want certain task from the playbook to be executed as different user then u can use above cmd and mention user name
