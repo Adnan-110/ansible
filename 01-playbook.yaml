@@ -3,15 +3,15 @@
   tasks:
     - name: Task1 of play1                            # Name of the task
       ansible.builtin.debug:
-        msg: "Hai from task1 of play1"
+        msg: "Hi from task1 of play1"
 
     - name: Task2 of play1                            # Name of the task
       ansible.builtin.debug:
-        msg: "Hai from task2 of play1"
+        msg: "Hi from task2 of play1"
 
 - name: Play2                                         # Name of the play
   hosts: all 
   tasks:
     - name: Task1 of play2                            # Name of the task
       ansible.builtin.debug:
-        msg: "****** Hai from task1 of play2 *******"
+        msg: "****** Hi from task1 of play2 *******"
