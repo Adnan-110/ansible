@@ -17,3 +17,8 @@
       ansible.builtin.debug:
         msg: Action is true  
       when: action   #Here this task will be ignored since action value we declared as false
+
+    - name: Run this action when action is declared/defined
+      ansible.builtin.debug:
+        msg: Action is defined
+      when: action is defined # Here 'is' and 'defined' is keyword this task will be executed since we have declared the action variable 
