@@ -16,9 +16,9 @@
   hosts: prod
   tasks: 
     - name: Printing the OS 
-     ansible.builtin.debug:
-     msg: OS Destribution is {{ansible_distribution}}
+      ansible.builtin.debug:
+        msg: OS Destribution is {{ansible_distribution}}
 
     - name: Printing the MAC Address 
-     ansible.builtin.debug:
-      msg: MAC Address is {{ansible_default_ipv4.macaddress}} 
+      ansible.builtin.debug:
+        msg: MAC Address is {{ansible_default_ipv4.macaddress}} 
