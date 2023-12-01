@@ -16,3 +16,13 @@
         msg: "System Uptime is {{OUT.stdout}}"
 
 # also here we declared the msg twice, so by default ansible will consider the latest msg only and will ignore the previous declarations.
+
+# You can capture the exit code of any task/cmd like below
+
+    - name: Capturing the exit code using set_fact
+      set_fact:
+        EXITCODE: "{{OUT.rc}}" # Here exit code  captured in EXITCODE Variable
+      
+    - name: Printing the Exit code of the uptime command 
+      ansible.builtin.debug:
+        msg: "Exit Code is {{EXITCODE}}"
