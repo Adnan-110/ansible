@@ -8,5 +8,11 @@
         msg: Value of the URL is {{URL}}  # In Yaml to print variables we have to enclose them in double {{}} baraces
       vars:                               # Declaring the variable at task level, which means local variable
         URL: task.google.com 
+    
+    - name: Printing the variable from command line
+      ansible.builtin.debug:
+        msg: Value of the xyz is {{xyz}}
 
-#In ansible  if u attempt to pring a variable which is not declared, it will throw an error
+# In ansible  if u attempt to pring a variable which is not declared, it will throw an error
+
+# Variable Precedence : Local Varaibles > Global Variables
