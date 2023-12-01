@@ -6,11 +6,14 @@
 # ansible all -i inv -e ansible_user=user_name -e ansible_password=password -m gather_facts
 
 - name: Demo on Facts
-  hosts: prod
+  hosts: dev
   tasks: 
     - name: Printing the OS 
       ansible.builtin.debug:
         msg: OS Distribution is {{ansible_distribution}}
+    - name: Printing the UUIDs
+      ansible.builtin.debug:
+        msg: UUID is {{ansible_devices.partitions.uuids}}
 
 - name: Demo on Facts
   hosts: prod
