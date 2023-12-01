@@ -1,0 +1,33 @@
+# Tags helps you to run the tasks with tag of your choice 
+- name: Demo on tags  
+  hosts: all
+  tasks:
+    - name: Installing frontend
+      ansible.builtin.debug: 
+        msg: Installing frontend
+      tags: frontend                       # Tagging tasks
+
+    - name: Starting frontend
+      ansible.builtin.debug: 
+        msg: Starting frontend
+      tags: frontend
+
+    - name: Installing DB
+      ansible.builtin.debug: 
+        msg: Installing DB
+      tags: db
+
+    - name: Starting DB
+      ansible.builtin.debug: 
+        msg: Starting DB
+      tags: db
+
+    - name: Installing Tomcat
+      ansible.builtin.debug: 
+        msg: Installing Tomcat
+      tags: tomcat
+
+    - name: Starting Tomcat
+      ansible.builtin.debug: 
+        msg: Starting Tomcat
+      tags: tomcat
