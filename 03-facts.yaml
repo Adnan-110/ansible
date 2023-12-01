@@ -13,7 +13,7 @@
         msg: OS Distribution is {{ansible_distribution}}
 
 - name: Demo on Facts
-  hosts: prod
+  hosts: all
   tasks: 
    - name: Printing the OS 
      ansible.builtin.debug:
