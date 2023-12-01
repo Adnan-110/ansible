@@ -7,6 +7,7 @@
 
 - name: Demo on Facts
   hosts: dev
+# gather_facts: false     If you dont want to gather the facts then U can disbale like this, however if you are performing any operations using gather facts like below, the playbook will fail.
   tasks: 
     - name: Printing the OS 
       ansible.builtin.debug:
