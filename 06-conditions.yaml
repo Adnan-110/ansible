@@ -21,4 +21,9 @@
     - name: Run this action when action is declared/defined
       ansible.builtin.debug:
         msg: Action is defined
-      when: action is defined # Here 'is' and 'defined' is keyword this task will be executed since we have declared the action variable 
+      when: action is defined # Here 'is' and 'defined' is keyword this task will be executed since we have declared the action variable
+
+    - name: Run this action when action is not declared/defined
+      ansible.builtin.debug:
+        msg: Action is defined
+      when: action is undefined # Here 'is' and 'undefined' is keyword this task will not be executed since we have declared the action variable  
