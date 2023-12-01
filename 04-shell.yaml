@@ -6,4 +6,9 @@
   hosts: all
   tasks: 
     - name: Running the uptime shell command 
-      ansible.builtin.shell: uptime
+      ansible.builtin.shell: uptime   # Shell module doesn't offer the output on screen by default. If you want to display the output of shell module, You have to register it like below
+      register: OUT   # Output will be register/stored in a variable. Here OUT is that variable, which can be used in any of the tasks of play
+
+    - name: Printing the System Uptime
+      ansible.builtin.debug:
+        msg: "System Uptime is {{OUT}}"  
