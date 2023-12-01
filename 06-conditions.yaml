@@ -1,0 +1,19 @@
+- name: Demo on Conditions 
+  hosts: all
+  vars: 
+    action: false
+  tasks:
+    - name: Run this task only when the OS Distribution is CentOS
+      ansible.builtin.debug:
+        msg: OS Distribution is {{ansible_distribution}}
+      when: ansible_distribution == "CentOS"
+    
+    - name: Run this task only when the OS Distribution is Ubuntu
+      ansible.builtin.debug:
+        msg: OS Distribution is {{ansible_distribution}}
+      when: ansible_distribution == "Ubuntu" #Here this task will be ignored since we are using centos ami
+
+    - name: Run this action 
+      ansible.builtin.debug:
+        msg: Action is true  
+      when: action   #Here this task will be ignored since action value we declared as false
