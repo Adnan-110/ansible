@@ -6,3 +6,10 @@
       ansible.builtin.package:
         name: nginx
         state: present
+
+    - name: Install Apache and MariaDB
+      ansible.builtin.package:
+        name: 
+          - httpd
+          - jq 
+        state: present
