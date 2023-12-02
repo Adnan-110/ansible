@@ -28,6 +28,6 @@
 - name: Restarting the {{COMPONENT}}
   ansible.builtin.systemd:
     name: nginx
-    state: reloaded  
+    state: restarted  
     enabled: true
     daemon_reload: true
