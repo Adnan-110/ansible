@@ -1,0 +1,8 @@
+- name: Demo on using Copy Module
+  hosts: all
+  tasks:
+    - name: Copying the file.
+      ansible.builtin.copy:
+        src: systemd.service   # Location of the file on the machine where script is being executed
+        dest: /home/centos/systemd.service          # Location of the file where u want to copy this file
+        

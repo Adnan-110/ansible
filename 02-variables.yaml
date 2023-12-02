@@ -1,3 +1,4 @@
+
 - name: Demo on variables usage 
   hosts: all
   vars:
