@@ -6,3 +6,6 @@ mongodb-dev.roboshop.internal.com
 
 [catalogue]
 catalogue-dev.roboshop.internal.com
+
+[redis]
+redis-dev.roboshop.internal.com
