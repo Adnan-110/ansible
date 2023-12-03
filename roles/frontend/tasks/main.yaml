@@ -35,6 +35,6 @@
 - name: Restarting Frontend Service
   ansible.builtin.systemd:
     name: nginx
-    state: restarted
+    state: started
     enabled: yes
     daemon_reload: yes
