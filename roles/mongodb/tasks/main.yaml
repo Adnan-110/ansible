@@ -32,10 +32,8 @@
 # Our databse version 4 is not going to mandate username and password, so wer are not providing it.
     # login_user: user
     # login_password: secret
-    file: "/tmp/mongodb-main/users.js"
+    file: "/tmp/mongodb-main/{{item}}.js"
     idempotent: yes
-
-- name: Injecting Catalogue Component Schema
-  community.mongodb.mongodb_shell:  
-    file: "/tmp/mongodb-main/catalogue.js"
-    idempotent: yes
+  loop: 
+    - users
+    - catalogue 
