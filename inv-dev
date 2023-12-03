@@ -9,3 +9,6 @@ catalogue-dev.roboshop.internal.com
 
 [redis]
 redis-dev.roboshop.internal.com
+
+[user]
+user-dev.roboshop.internal.com
