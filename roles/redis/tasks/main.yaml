@@ -2,7 +2,7 @@
   ansible.builtin.copy:
     src: redis.repo
     dest: /etc/yum.repos.d/redis.repo
-
+    
 - name: Installing the {{COMPONENT}} Package
   ansible.builtin.package:
     name: redis-6.2.13
@@ -16,13 +16,15 @@
 
 - name: Enabling the {{COMPONENT}} Visibility
   ansible.builtin.replace:
-  path: /etc/redis/redis.conf
-  regexp: '127.0.0.1'
-  replace: '0.0.0.0'
+    path: /etc/redis/redis.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
 
-- name: Starting the {{COMPONENT}} Service
-  ansible.builtin.systemd:
-    name: "{{COMPONENT}}"
-    state: started
+- name: Restarting the {{COMPONENT}} Service
+  ansible.builtin.systemd: 
+    name: "{{COMPONENT}}" 
+    state: restarted
     enabled: true
     daemon_reload: true
+
+
