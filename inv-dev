@@ -12,3 +12,6 @@ redis-dev.roboshop.internal.com
 
 [user]
 user-dev.roboshop.internal.com
+
+[cart]
+cart-dev.roboshop.internal.com
