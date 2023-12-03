@@ -1,2 +1,5 @@
 [frontend]
 frontend-dev.roboshop.internal.com
+
+[mongodb]
+mongodb-dev.roboshop.internal.com 
