@@ -1,0 +1,22 @@
+- name: Configuring {{COMPONENT}} Repository
+  ansible.builtin.copy:
+    src: mysql.repo
+    dest: /etc/yum.repos.d/mysql.repo
+
+- name: Installing the {{}} Package
+  ansible.builtin.package:
+    name: mysql-coomunity-server
+    state: present
+
+- name: Restarting the {{COMPONENT}} Service
+  ansible.builtin.systemd:
+    name: "{{COMPONENT}}"
+    state: started
+    enabled: true
+
+- name: Restarting the {{COMPONENT}} Service
+  ansible.builtin.systemd: 
+    name: "{{COMPONENT}}" 
+    state: restarted
+    enabled: true
+    daemon_reload: true
