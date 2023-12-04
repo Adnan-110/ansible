@@ -13,10 +13,3 @@
     name: "{{COMPONENT}}"
     state: started
     enabled: true
-
-- name: Restarting the {{COMPONENT}} Service
-  ansible.builtin.systemd: 
-    name: "{{COMPONENT}}" 
-    state: restarted
-    enabled: true
-    daemon_reload: true
