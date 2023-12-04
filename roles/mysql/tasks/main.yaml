@@ -5,7 +5,7 @@
 
 - name: Installing the {{COMPONENT}} Package
   ansible.builtin.package:
-    name: mysql-coomunity-server
+    name: mysql-community-server
     state: present
 
 - name: Restarting the {{COMPONENT}} Service
