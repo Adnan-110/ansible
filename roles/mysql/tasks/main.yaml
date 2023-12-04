@@ -20,13 +20,13 @@
 - name: Extracting the mysql log file
   ansible.builtin.slurp:
     src: /var/log/mysqld.log
-  register: psw_log
+  register: psw_log 
 
 # If any of the task in block fails, The task in the rescue will be executed. This is exception handling in the ansible.
 
-- name: Verifying Password
+- name: Verifying the password 
   block:
-    - name: Get MySQL version with non-default credentials 
+    - name: Get MySQL version with non-default credentials
       community.mysql.mysql_info:
         login_user: root 
         login_password: "{{MYSQL_PSWD}}"
@@ -34,8 +34,7 @@
   rescue: 
     - name: Extracting the password from logfile
       ansible.builtin.set_fact:
-        DEFAULT_PASSWORD: "{{psw_log['content'] | b64decode | regexp_findall('.*temporary password.*') | join('') | split(' ') | last}}"
+        DEFAULT_PASSWORD: "{{psw_log['content'] | b64decode | regex_findall('.*temporary password.*') | join('') | split(' ') | last}}"
 
     - name: Changing Default Root Password
-      ansible.builtin.shell: echo "ALTER USER 'root '@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD}}"
-      
+      ansible.builtin.shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD}}"
