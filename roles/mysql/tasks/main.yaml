@@ -5,7 +5,10 @@
 
 - name: Installing the {{COMPONENT}} Package
   ansible.builtin.package:
-    name: mysql-community-server
+    name: 
+      - mysql-community-server
+      - python3-PyMySQL
+      - MySQL-python
     state: present
 
 - name: Restarting the {{COMPONENT}} Service
@@ -13,3 +16,26 @@
     name: mysqld
     state: started
     enabled: true
+
+- name: Extracting the mysql log file
+  ansible.builtin.slurp:
+    src: /var/log/mysqld.log
+  register: psw_log
+
+# If any of the task in block fails, The task in the rescue will be executed. This is exception handling in the ansible.
+
+- name: Verifying Password
+  block:
+    - name: Get MySQL version with non-default credentials 
+      community.mysql.mysql_info:
+        login_user: root 
+        login_password: "{{MYSQL_PSWD}}"
+        filter: version
+  rescue: 
+    - name: Extracting the password from logfile
+      ansible.builtin.set_fact:
+        DEFAULT_PASSWORD: "{{psw_log['content'] | b64decode | regexp_findall('.*temporary password.*') | join('') | split(' ') | last}}"
+
+    - name: Changing Default Root Password
+      ansible.builtin.shell: echo "ALTER USER 'root '@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD}}"
+      
