@@ -3,7 +3,7 @@
     src: mysql.repo
     dest: /etc/yum.repos.d/mysql.repo
 
-- name: Installing the {{}} Package
+- name: Installing the {{COMPONENT}} Package
   ansible.builtin.package:
     name: mysql-coomunity-server
     state: present
