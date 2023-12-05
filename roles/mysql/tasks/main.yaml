@@ -49,10 +49,18 @@
     dest: /tmp
     remote_src: true
 
-- name: Injecting Shipping Schema in {{COMPONENT}} server 
+# - name: Injecting Shipping Schema in {{COMPONENT}} server 
+#   community.mysql.mysql_db:
+#     name: all
+#     state: import
+#     target: /tmp/{{COMPONENT}}-main/shipping.sql
+#     login_user: root
+#     login_password: "{{MYSQL_PSWD}}"
+
+- name: Injecting the {{COMPONENT}} schema 
   community.mysql.mysql_db:
-    name: all
+    name: all 
     state: import
-    target: /tmp/{{COMPONENT}}-main/shipping.sql
     login_user: root
-    login_password: "{{MYSQL_PSWD}}"
+    login_password: "{{MYSQL_PSW}}"
+    target: /tmp/{{COMPONENT}}-main/shipping.sql 
