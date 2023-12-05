@@ -53,6 +53,6 @@
   community.mysql.mysql_db:
     name: all
     state: import
-    target: /tmp/dump.sql
+    target: /tmp/{{COMPONENT}}-main/shipping.sql
     login_user: root
     login_password: "{{MYSQL_PSWD}}"
