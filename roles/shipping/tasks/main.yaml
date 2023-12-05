@@ -26,9 +26,9 @@
     remote_src: true
 
 - name: Installing the {{COMPONENT}} Artifacts
-  community.builtin.shell: mvn clean package && mv target/{{COMPONENT}}-1.0.jar {{COMPONENT}}.jar 
+  community.builtin.shell: mvn clean package && mv target/"{{COMPONENT}}"-1.0.jar "{{COMPONENT}}".jar 
   args: 
-    chdir: /home/{{APPUSER}}/{{COMPONENT}}/
+    chdir: "/home/{{APPUSER}}/{{COMPONENT}}/"
 
 - name: Copying {{COMPONENT}} systemd.service file
   ansible.builtin.template:
