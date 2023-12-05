@@ -41,7 +41,7 @@
 
     - name: Uninstalling the Password Validation Plugin
       ansible.builtin.shell: echo "uninstall plugin validate_password;" | mysql -uroot -pRoboShop@1
-      ignore_error: true
+      ignore_errors: true     
   
 - name: Download and Extracting {{COMPONENT}} Schema
   ansible.builtin.unarchive:
