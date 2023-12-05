@@ -17,4 +17,7 @@ user-prod.roboshop.internal.com
 cart-prod.roboshop.internal.com
 
 [mysql]
-mysql-dev.roboshop.internal.com
+mysql-prod.roboshop.internal.com
+
+[shipping]
+shipping-prod.roboshop.internal.com

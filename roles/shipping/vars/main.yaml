@@ -1,0 +1,4 @@
+COMPONENT: shipping
+APPUSER: roboshop
+CARTENDPOINT: cart-{{ENVIRONMENT}}.roboshop.internal.com:8080
+DBHOST: mysql-{{ENVIRONMENT}}.roboshop.internal.com
