@@ -62,5 +62,5 @@
     name: all 
     state: import
     login_user: root
-    login_password: "{{MYSQL_PSW}}"
+    login_password: "{{MYSQL_PSWD}}"
     target: /tmp/{{COMPONENT}}-main/shipping.sql 
