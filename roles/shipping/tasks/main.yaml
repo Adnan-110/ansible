@@ -1,4 +1,4 @@
-- name: Installing YUM Repo for {{COMPONENT}}
+- name: Installing Maven for {{COMPONENT}}
   ansible.builtin.shell: curl https://gitlab.com/thecloudcareers/opensource/-/raw/master/lab-tools/maven-java11/install.sh | bash  # || true
   ignore_errors: true
 
