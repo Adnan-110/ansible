@@ -1,0 +1,34 @@
+- name: Installing the Python 
+  ansible.builtin.package:
+    name: 
+      - python36
+      - gcc
+      - python3-devel
+    state: present 
+
+- name: Creating User Account 
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: create_user
+
+- name: Downloading Artifacts
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download_&_extract
+
+- name: Updating the UID in {{COMPONENT}}.ini File
+  ansible.builtin.lineinfile:
+    path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini
+    regexp: '^uid'
+    line: uid = {{USERINFO.uid}}
+
+- name: Updating the GID in {{COMPONENT}}.ini File
+  ansible.builtin.lineinfile:
+    path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini
+    regexp: '^gid'
+    line: gid = {{USERINFO.group}} #.group because in ansible its fethched as group instead of gid
+
+- name: Set Hostname
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: set_hostname    
