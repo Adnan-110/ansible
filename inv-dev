@@ -21,3 +21,6 @@ mysql-dev.roboshop.internal.com
 
 [shipping]
 shipping-dev.roboshop.internal.com
+
+[rabbitmq]
+rabbitmq-dev.roboshop.internal.com
