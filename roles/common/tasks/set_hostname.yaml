@@ -1,2 +1,2 @@
 - name: Configuring Hosthostname
-  ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}
+  ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENVIRONMENT}}
