@@ -24,3 +24,6 @@ shipping-dev.roboshop.internal.com
 
 [rabbitmq]
 rabbitmq-dev.roboshop.internal.com
+
+[payment]
+payment-dev.roboshop.internal.com
