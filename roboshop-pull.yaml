@@ -1,0 +1,6 @@
+# Prerequistite : The machine that you're running this should have ansible installed.
+- name: Configuring Roboshop Project
+  become: True 
+  hosts: localhost              # This defines platbook will be executed on the top of the same machine only.
+  roles:
+    - role: "{{COMPONENT}}"
