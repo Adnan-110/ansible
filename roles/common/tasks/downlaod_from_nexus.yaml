@@ -1,0 +1,12 @@
+- name: Performing {{COMPONENT}} Clean-Up
+  ansible.builtin.file:
+    path: /home/{{APPUSER}}/{{COMPONENT}}
+    state: absent
+  ignore_errors: true
+
+- name: Creating {{COMPONENT}} App Directory
+  ansible.builtin.file:
+    path: /home/{{APPUSER}}/{{COMPONENT}}/
+    state: directory
+    mode: '755'
+  become_user: "{{APPUSER}}"
