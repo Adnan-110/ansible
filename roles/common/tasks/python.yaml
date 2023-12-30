@@ -10,11 +10,17 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: create_user
+    
+# Uncomment below code if you want to download the code from github 
+# - name: Downloading Artifacts
+#   ansible.builtin.include_role:
+#     name: common
+#     tasks_from: download_&_extract
 
-- name: Downloading Artifacts
+- name: Downloading the Artifacts from Nexus
   ansible.builtin.include_role:
     name: common
-    tasks_from: download_&_extract
+    tasks_from: download_from_nexus
 
 - name: Updating the UID in {{COMPONENT}}.ini File
   ansible.builtin.lineinfile:

@@ -7,15 +7,22 @@
     name: common
     tasks_from: create_user
 
-- name: Configuring the {{COMPONENT}}
+# Uncomment below code if you want to download the code from github 
+# - name: Configuring the {{COMPONENT}}
+#   ansible.builtin.include_role:
+#     name: common
+#     tasks_from: download_&_extract
+
+- name: Downloading the Artifacts from Nexus
   ansible.builtin.include_role:
     name: common
-    tasks_from: download_&_extract
-
-- name: Installing the {{COMPONENT}} Artifacts
-  ansible.builtin.shell: mvn clean package && mv target/{{COMPONENT}}-1.0.jar {{COMPONENT}}.jar 
-  args: 
-    chdir: /home/{{APPUSER}}/{{COMPONENT}}/
+    tasks_from: download_from_nexus
+    
+# Uncomment below code if you want to generate artifacts for code which is downloaded from github
+# - name: Installing the {{COMPONENT}} Artifacts
+#   ansible.builtin.shell: mvn clean package && mv target/{{COMPONENT}}-1.0.jar {{COMPONENT}}.jar 
+#   args: 
+#     chdir: /home/{{APPUSER}}/{{COMPONENT}}/
 
 - name: Configuring and Starting the {{COMPONENT}} Service
   ansible.builtin.include_role:
