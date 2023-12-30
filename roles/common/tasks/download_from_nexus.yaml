@@ -13,6 +13,6 @@
 
 - name: Download and Exctracting {{COMPONENT}} from Nexus
   ansible.builtin.unarchive:
-    src: http://172.31.86.85:8081/repository/{{COMPONENT}}/{{COMPONENT}}_{{APP_VERSION}}.zip
+    src: http://172.31.86.85:8081/repository/{{COMPONENT}}/{{COMPONENT}}-{{APP_VERSION}}.zip
     dest: /home/{{APPUSER}}/{{COMPONENT}}/
     remote_src: true
