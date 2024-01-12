@@ -1,29 +1,29 @@
 [frontend]
-frontend-dev.roboshop.internal.com
+frontend-dev.roboshop.internal
 
 [mongodb]
-mongodb-dev.roboshop.internal.com 
+mongodb-dev.roboshop.internal 
 
 [catalogue]
-catalogue-dev.roboshop.internal.com
+catalogue-dev.roboshop.internal
 
 [redis]
-redis-dev.roboshop.internal.com
+redis-dev.roboshop.internal
 
 [user]
-user-dev.roboshop.internal.com
+user-dev.roboshop.internal
 
 [cart]
-cart-dev.roboshop.internal.com
+cart-dev.roboshop.internal
 
 [mysql]
-mysql-dev.roboshop.internal.com
+mysql-dev.roboshop.internal
 
 [shipping]
-shipping-dev.roboshop.internal.com
+shipping-dev.roboshop.internal
 
 [rabbitmq]
-rabbitmq-dev.roboshop.internal.com
+rabbitmq-dev.roboshop.internal
 
 [payment]
-payment-dev.roboshop.internal.com
+payment-dev.roboshop.internal
