@@ -13,20 +13,20 @@
     tasks_from: create_user
 
 # Uncomment below code if you want to download the code from github 
-# - name:  Configuring the {{COMPONENT}}
-#   ansible.builtin.include_role:
-#     name: common
-#     tasks_from: download_&_extract
-
-- name: Downloading the Artifacts from Nexus
+- name:  Configuring the {{COMPONENT}}
   ansible.builtin.include_role:
     name: common
-    tasks_from: download_from_nexus
+    tasks_from: download_&_extract
+
+# - name: Downloading the Artifacts from Nexus
+#   ansible.builtin.include_role:
+#     name: common
+#     tasks_from: download_from_nexus
 
 # Uncomment below code if you want to generate artifacts for code which is downloaded from github
-# - name: Installing the {{COMPONENT}} Artifacts
-#   community.general.npm:
-#     path: /home/{{APPUSER}}/{{COMPONENT}}/
+- name: Installing the {{COMPONENT}} Artifacts
+  community.general.npm:
+    path: /home/{{APPUSER}}/{{COMPONENT}}/
 
 - name:  Configuring and Starting the {{COMPONENT}} Service
   ansible.builtin.include_role:
