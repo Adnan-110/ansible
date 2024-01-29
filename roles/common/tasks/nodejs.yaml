@@ -24,7 +24,7 @@
 #     name: common
 #     tasks_from: download_&_extract
 
-# - name: Downloading the Artifacts from Nexus
+- name: Downloading the Artifacts from Nexus
   ansible.builtin.include_role:
     name: common
     tasks_from: download_from_nexus
