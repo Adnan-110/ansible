@@ -6,3 +6,10 @@
 - name: Registering the APPUSER Info 
   ansible.builtin.debug: 
     msg: Value of user info is {{USERINFO}}
+
+- name: Installing boto3 and botocore as Pre-Requisite for SSM Lookup 
+  ansible.builtin.pip:
+    name: 
+      - botocore 
+      - boto3 
+    executable: pip3

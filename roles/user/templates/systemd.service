@@ -3,8 +3,8 @@ Description = User Service
 [Service]
 User=roboshop
 Environment=MONGO=true
-Environment=REDIS_HOST=redis-{{ENVIRONMENT}}.roboshop.internal.com
-Environment=MONGO_URL="mongodb://mongodb-{{ENVIRONMENT}}.roboshop.internal.com:27017/users"
+Environment=REDIS_HOST={{REDIS_ENDPOINT}}
+Environment=MONGO_URL="mongodb://{{SECRETS.DOCDB_USERNAME}}:{{SECRETS.DOCDB_PASSWORD}}@{{DOCDB_ENDPOINT}}:27017/users?tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false"
 ExecStart=/bin/node /home/roboshop/user/server.js
 SyslogIdentifier=user
 

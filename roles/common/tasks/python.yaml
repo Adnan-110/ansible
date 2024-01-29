@@ -33,6 +33,16 @@
     path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini
     regexp: '^gid'
     line: gid = {{USERINFO.group}} #.group because in ansible its fethched as group instead of gid
+  
+- name: Installing app dependencies
+  ansible.builtin.pip:
+    requirements: /home/{{APPUSER}}/{{COMPONENT}}/requirements.txt 
+    executable: pip3.6
+
+- name: Configuring and Starting Service
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: config_svc
 
 - name: Set Hostname
   ansible.builtin.include_role:
