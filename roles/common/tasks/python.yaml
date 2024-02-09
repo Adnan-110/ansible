@@ -1,17 +1,17 @@
-- name: Installing the Python 
+- name: Installing the Python
   ansible.builtin.package:
-    name: 
+    name:
       - python36
       - gcc
       - python3-devel
-    state: present 
+    state: present
 
-- name: Creating User Account 
+- name: Creating User Account
   ansible.builtin.include_role:
     name: common
     tasks_from: create_user
-    
-# Uncomment below code if you want to download the code from github 
+
+# Uncomment below code if you want to download the code from github
 # - name: Downloading Artifacts
 #   ansible.builtin.include_role:
 #     name: common
@@ -25,18 +25,26 @@
 - name: Updating the UID in {{COMPONENT}}.ini File
   ansible.builtin.lineinfile:
     path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini
-    regexp: '^uid'
+    regexp: "^uid"
     line: uid = {{USERINFO.uid}}
 
 - name: Updating the GID in {{COMPONENT}}.ini File
   ansible.builtin.lineinfile:
     path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini
-    regexp: '^gid'
+    regexp: "^gid"
     line: gid = {{USERINFO.group}} #.group because in ansible its fethched as group instead of gid
-  
+
+- name: Update gcc
+  community.general.alternatives:
+    name: gcc
+    path: /usr/bin/gcc
+    link: /usr/bin/gcc
+    force: true
+  become: true
+
 - name: Installing app dependencies
   ansible.builtin.pip:
-    requirements: /home/{{APPUSER}}/{{COMPONENT}}/requirements.txt 
+    requirements: /home/{{APPUSER}}/{{COMPONENT}}/requirements.txt
     executable: pip3.6
 
 - name: Configuring and Starting Service
@@ -47,4 +55,4 @@
 - name: Set Hostname
   ansible.builtin.include_role:
     name: common
-    tasks_from: set_hostname    
+    tasks_from: set_hostname
