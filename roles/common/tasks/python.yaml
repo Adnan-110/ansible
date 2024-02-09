@@ -39,7 +39,6 @@
     name: gcc
     path: /usr/bin/gcc
     link: /usr/bin/gcc
-    force: true
   become: true
 
 - name: Installing app dependencies
