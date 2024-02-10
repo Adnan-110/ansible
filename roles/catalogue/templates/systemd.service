@@ -3,10 +3,9 @@ Description = Catalogue Service
 [Service]
 User=roboshop
 Environment=MONGO=true
-Environment=MONGO_URL="mongodb://{{SECRETS.DOCDB_USERNAME}}:{{SECRETS.DOCDB_PASSWORD}}@{{DOCDB_ENDPOINT}}:27017/catalogue?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false"
+Environment=MONGO_URL="mongodb://{{SECRETS.DOCDB_USERNAME}}:{{SECRETS.DOCDB_PASSWORD}}@{{DOCDB_ENDPOINT}}:27017/catalogue?tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false"
 ExecStart=/bin/node /home/roboshop/catalogue/server.js
 SyslogIdentifier=catalogue
 
 [Install]
 WantedBy=multi-user.target
-
