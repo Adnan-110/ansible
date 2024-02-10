@@ -1,5 +1,5 @@
 COMPONENT: shipping
 APPUSER: roboshop
-CARTENDPOINT: cart-{{ENVIRONMENT}}.roboshop.internal.com:8080
-USERHOST: user-{{ENVIRONMENT}}.roboshop.internal.com
-AMQPHOST: rabbitmq-{{ENVIRONMENT}}.roboshop.internal.com
+CARTENDPOINT: cart-{{ENVIRONMENT}}.roboshop.internal:8080
+USERHOST: user-{{ENVIRONMENT}}.roboshop.internal
+AMQPHOST: rabbitmq-{{ENVIRONMENT}}.roboshop.internal
