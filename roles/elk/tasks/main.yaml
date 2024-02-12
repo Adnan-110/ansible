@@ -1,9 +1,9 @@
-- name: Copying Logstash Config
+- name: Copying the Logstash Configuration File
   ansible.builtin.template:
     src: logstash.conf                 
     dest: /etc/logstash/conf.d/logstash.conf                   
 
-- name: Restarting Logstash
+- name: Restarting Logstash Service
   ansible.builtin.systemd:
     name: logstash
     state: restarted
