@@ -1,0 +1,13 @@
+# Any Change made to the logstash.conf file would need a restart to function properly
+
+- name: Copying the Logstash Configuration File
+  ansible.builtin.template:
+    src: logstash.conf
+    dest: /etc/logstash/conf.d/logstash.conf
+
+- name: Restarting logstash Service
+  ansible.builtin.systemd:
+    name: logstash
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
