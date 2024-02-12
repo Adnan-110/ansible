@@ -1,5 +1,3 @@
-# Any Change made to the logstash.conf file would need a restart to function properly
-
 - name: Copying the Logstash Configuration File
   ansible.builtin.template:
     src: logstash.conf
@@ -11,3 +9,5 @@
     state: restarted
     enabled: yes
     daemon_reload: yes
+
+    # Any Change made to the logstash.conf file would need a restart to function properly
