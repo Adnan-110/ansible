@@ -9,5 +9,4 @@
     state: restarted
     enabled: yes
     daemon_reload: yes
-
-    # Any Change made to the logstash.conf file would need a restart to function properly
+# Any Change made to the logstash.conf file would need a restart to function properly
