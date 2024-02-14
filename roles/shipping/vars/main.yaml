@@ -3,3 +3,4 @@ APPUSER: roboshop
 CARTENDPOINT: cart-{{ENVIRONMENT}}.roboshop.internal:80
 DBHOST: "{{MYSQL_ENDPOINT}}"
 LOG_LOCATION: "/var/log/shipping.log"
+LOGTYPE: raw
