@@ -51,6 +51,16 @@
     name: common
     tasks_from: config_svc
 
+- name: Configuring the RSYSLOG
+  ansible.builtin.include_role:
+    name: elk
+    tasks_from: rsyslog
+
+- name: Configuring the Beats
+  ansible.builtin.include_role:
+    name: elk
+    tasks_from: filebeat
+
 - name: Set Hostname
   ansible.builtin.include_role:
     name: common
