@@ -1,0 +1,33 @@
+filebeat.inputs:
+- type: log
+  id: my-filestream-id
+  enabled: true
+{% if LOGTYPE == "json" %}
+  json.keys_under_root: true
+{% endif %}
+
+  paths:
+    - "{{LOG_LOCATION}}"
+
+  fields:
+    component: "{{COMPONENT}}"
+    logtype: "{{LOGTYPE}}"
+
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+
+setup.template.settings:
+  index.number_of_shards: 1
+
+setup.kibana:
+
+output.logstash:
+  hosts: ["172.31.38.35:5044"]
+
+processors:
+  - add_host_metadata:
+      when.not.contains.tags: forwarded
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+  - add_kubernetes_metadata: ~

@@ -1,1 +1,2 @@
-COMPONENT: frontend 
+COMPONENT: frontend
+LOG_LOCATION: "/var/log/nginx/access.log"

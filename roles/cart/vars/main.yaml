@@ -1,2 +1,3 @@
 COMPONENT: cart
 APPUSER: roboshop
+LOG_LOCATION: "/var/log/cart.log"

@@ -1,5 +1,6 @@
-COMPONENT: shipping
+COMPONENT: payment
 APPUSER: roboshop
 CARTENDPOINT: cart-{{ENVIRONMENT}}.roboshop.internal:8080
 USERHOST: user-{{ENVIRONMENT}}.roboshop.internal
 AMQPHOST: rabbitmq-{{ENVIRONMENT}}.roboshop.internal
+LOG_LOCATION: "/var/log/payment.log"
