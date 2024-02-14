@@ -1,4 +1,4 @@
-- name: Configuring the repo 
+- name: Configuring the Repo 
   ansible.builtin.shell: sudo rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch
 
 - name: Copying the Elasatic Repo 
@@ -13,10 +13,10 @@
 
 - name: Copying the Filebeat Config 
   ansible.builtin.template:
-    src: filebeat.yml 
-    dest: /etc/filebeat/filebeat.yml
+    src: filebeat.yaml 
+    dest: /etc/filebeat/filebeat.yaml
 
-- name: Restart filebeat 
+- name: Restart Filebeat 
   ansible.builtin.service:
     name: filebeat 
     state: restarted       
