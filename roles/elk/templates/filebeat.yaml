@@ -2,7 +2,7 @@ filebeat.inputs:
 - type: log
   id: my-filestream-id
   enabled: true
-{% if LOGTYPE == "json" %}
+  {% if LOGTYPE == "json" %}
   json.keys_under_root: true
 {% endif %}
 
