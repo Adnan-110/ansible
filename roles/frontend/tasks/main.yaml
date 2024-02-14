@@ -31,16 +31,12 @@
 #     state: restarted
 #     enabled: true
 #     daemon_reload: true
-- name: Configuring the RSYSLOG
-  ansible.builtin.include_role:
-    name: elk
-    tasks_from: rsyslog
 
 - name: Configuring the Beats
   ansible.builtin.include_role:
     name: elk
     tasks_from: filebeat
-    
+
 - name: Restarting Frontend Service
   ansible.builtin.systemd:
     name: nginx
