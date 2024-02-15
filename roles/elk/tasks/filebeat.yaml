@@ -13,7 +13,7 @@
 
 - name: Copying the Filebeat Config 
   ansible.builtin.template:
-    src: filebeat.yaml 
+    src: filebeat.yaml
     dest: /etc/filebeat/filebeat.yaml
 
 - name: Restart Filebeat 
