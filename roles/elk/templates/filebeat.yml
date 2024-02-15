@@ -14,7 +14,7 @@ filebeat.inputs:
     logtype: "{{LOGTYPE}}"
 
 filebeat.config.modules:
-  path: ${path.config}/modules.d/*.yaml
+  path: ${path.config}/modules.d/*.yml
   reload.enabled: false
 
 setup.template.settings:
