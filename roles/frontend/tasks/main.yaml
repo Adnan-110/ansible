@@ -37,6 +37,11 @@
     name: elk
     tasks_from: filebeat
 
+- name: Copying {{COMPONENT}} Config
+  ansible.builtin.template:
+    src: nginx.conf                
+    dest: /etc/nginx/nginx.conf   
+
 - name: Restarting Frontend Service
   ansible.builtin.systemd:
     name: nginx
