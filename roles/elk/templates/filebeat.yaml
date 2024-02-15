@@ -23,7 +23,7 @@ setup.template.settings:
 setup.kibana:
 
 output.logstash:
-  hosts: ["172.31.38.35:5044"]
+  hosts: ["172.31.24.164:5044"]
 
 processors:
   - add_host_metadata:
