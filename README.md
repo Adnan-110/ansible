@@ -16,7 +16,7 @@ Ansible is a configuration management tool which works both on push and pull mec
 
 ```
 
-### Important Points To Be Notes :
+### Important Points To Be Notes
 
 ```
     1) Ansible in the backend uses python !!!!
@@ -27,14 +27,13 @@ Ansible is a configuration management tool which works both on push and pull mec
 
 ```
 
-### Ansible Documentation Reference : 
+### Ansible Documentation Reference
 
 ```
     https://docs.ansible.com/ansible/latest/index.html
 ```
 
 Ansible -----> Redhat ----> IBM   ( IBM is a RedHat product now and still it's openSource )
-
 
 ### INVENTORY File
 
@@ -55,18 +54,17 @@ Ansible can be operated in 2 ways :
 ## Manual Approach
 
 ```
-    $ ansible -i inv all -e ansible_user=centos  -e ansible_password=DevOps321  -m shell -a uptime
+    ansible -i inv all -e ansible_user=centos  -e ansible_password=DevOps321  -m shell -a uptime
 
 ```
 
-### One of the most widely asked interview question,
+### One of the most widely asked interview question
 
 ```
     How to know the list of machines mentioned in the inventory are up or not ?
 
     $ ansible -i inv all -e ansible_user=centos -e ansible_password=DevOps321 -m ping
 ```
-
 
 ### What is playbook ?
 
@@ -86,13 +84,13 @@ Ansible can be operated in 2 ways :
     YAML is the language used by ANSIBLE to write playbooks.
 ```
 
-### YAML : Yet Another Markup Lanugated !
+### YAML : Yet Another Markup Lanugated
 
 ```
  YAML is indendation specific
 ```
 
-### What is a Marupup Languate ? 
+### What is a Marupup Languate ?
 
 ```
     Markup Language is a Presentation Languate !!!!
@@ -100,8 +98,7 @@ Ansible can be operated in 2 ways :
         Ex: html , xml 
 ```
 
-
-### YAML is all about 3 ways of representing data that's based on the datatype.
+### YAML is all about 3 ways of representing data that's based on the datatype
 
 ```
     1) Dictionary : a key value pair 
@@ -119,13 +116,11 @@ Ansible can be operated in 2 ways :
                     - gcp
 ```
 
-
 ### How to run ansible-playbooks ?
 
 ```
-    $ ansible-playbook -i inv  -e ansible_user=centos  -e ansible_password=DevOps321 playBookName.yaml
+    ansible-playbook -i inv  -e ansible_user=centos  -e ansible_password=DevOps321 playBookName.yml
 ```
-
 
 ### When to use quotes for variables in an ansible playbook ?
 
@@ -139,11 +134,11 @@ Ansible can be operated in 2 ways :
 
 ```
 
-Ansible always suggests to organize the files , tasks and variables in a standard format using ROLES. 
+Ansible always suggests to organize the files , tasks and variables in a standard format using ROLES.
 
     > Roles play a very important role in Ansible
 
-### Role directory structure :
+### Role directory structure
 
 An Ansible role has a defined directory structure with eight main standard directories. You must include at least one of these directories in each role. You can omit any directories the role does not use. For example:
 

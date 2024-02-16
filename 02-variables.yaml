@@ -4,7 +4,7 @@
   vars:
     URL: play.google.com  # Declaring the variable at play-level, all the tasks of this play inherits this value. 
   vars_files: 
-    - "{{ENV}}.yaml"
+    - "{{ENV}}.yml"
   tasks: 
     - name: Printing the variable
       ansible.builtin.debug:
