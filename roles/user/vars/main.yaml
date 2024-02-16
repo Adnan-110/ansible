@@ -1,4 +1,4 @@
 COMPONENT: user
 APPUSER: roboshop
-LOG_LOCATION: "/var/log/user.log"
 LOGTYPE: json
+LOG_LOCATION: "/var/log/cart.log"
