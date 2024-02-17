@@ -37,7 +37,7 @@
     name: elk
     tasks_from: filebeat
 
-- name: Copying {{COMPONENT}} Config
+- name: Copying {{COMPONENT}} NGINX Config
   ansible.builtin.template:
     src: nginx.conf                
     dest: /etc/nginx/nginx.conf   
