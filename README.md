@@ -16,7 +16,7 @@ Ansible is a configuration management tool which works both on push and pull mec
 
 ```
 
-### Important Points To Be Notes
+### Important Points To Be Notes :
 
 ```
     1) Ansible in the backend uses python !!!!
@@ -27,13 +27,14 @@ Ansible is a configuration management tool which works both on push and pull mec
 
 ```
 
-### Ansible Documentation Reference
+### Ansible Documentation Reference : 
 
 ```
     https://docs.ansible.com/ansible/latest/index.html
 ```
 
 Ansible -----> Redhat ----> IBM   ( IBM is a RedHat product now and still it's openSource )
+
 
 ### INVENTORY File
 
@@ -54,17 +55,18 @@ Ansible can be operated in 2 ways :
 ## Manual Approach
 
 ```
-    ansible -i inv all -e ansible_user=centos  -e ansible_password=DevOps321  -m shell -a uptime
+    $ ansible -i inv all -e ansible_user=centos  -e ansible_password=DevOps321  -m shell -a uptime
 
 ```
 
-### One of the most widely asked interview question
+### One of the most widely asked interview question,
 
 ```
     How to know the list of machines mentioned in the inventory are up or not ?
 
     $ ansible -i inv all -e ansible_user=centos -e ansible_password=DevOps321 -m ping
 ```
+
 
 ### What is playbook ?
 
@@ -84,13 +86,13 @@ Ansible can be operated in 2 ways :
     YAML is the language used by ANSIBLE to write playbooks.
 ```
 
-### YAML : Yet Another Markup Lanugated
+### YAML : Yet Another Markup Lanugated !
 
 ```
  YAML is indendation specific
 ```
 
-### What is a Marupup Languate ?
+### What is a Marupup Languate ? 
 
 ```
     Markup Language is a Presentation Languate !!!!
@@ -98,7 +100,8 @@ Ansible can be operated in 2 ways :
         Ex: html , xml 
 ```
 
-### YAML is all about 3 ways of representing data that's based on the datatype
+
+### YAML is all about 3 ways of representing data that's based on the datatype.
 
 ```
     1) Dictionary : a key value pair 
@@ -116,11 +119,13 @@ Ansible can be operated in 2 ways :
                     - gcp
 ```
 
+
 ### How to run ansible-playbooks ?
 
 ```
-    ansible-playbook -i inv  -e ansible_user=centos  -e ansible_password=DevOps321 playBookName.yml
+    $ ansible-playbook -i inv  -e ansible_user=centos  -e ansible_password=DevOps321 playBookName.yaml
 ```
+
 
 ### When to use quotes for variables in an ansible playbook ?
 
@@ -134,11 +139,11 @@ Ansible can be operated in 2 ways :
 
 ```
 
-Ansible always suggests to organize the files , tasks and variables in a standard format using ROLES.
+Ansible always suggests to organize the files , tasks and variables in a standard format using ROLES. 
 
     > Roles play a very important role in Ansible
 
-### Role directory structure
+### Role directory structure :
 
 An Ansible role has a defined directory structure with eight main standard directories. You must include at least one of these directories in each role. You can omit any directories the role does not use. For example:
 
@@ -162,4 +167,34 @@ An Ansible role has a defined directory structure with eight main standard direc
                 main.yml      #  <-- role dependencies
 
 ```
-frontend-dev.adnans-portfolio.cloud
+
+
+### How to convert the unstructued logs to structued in ELK ?
+```
+    Using GROK Debugger : https://grokdebugger.com/
+
+    How do we know the patterns : https://github.com/hpcugent/logstash-patterns/blob/master/files/grok-patterns
+```
+
+### Let's understand the log pattern of frontend : 
+
+```
+10.0.0.159 - - [27/Jan/2024:00:40:54 +0000] "GET / HTTP/1.1" 200 2542 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" "199.45.154.17"
+```
+
+### After Transforming the logPattern : 
+27/Jan/2024:01:12:18 +0000 10.0.0.226 GET /users/sign_in HTTP/1.1 404 153 0.00
+
+'$time_local $remote_addr $request $status $body_bytes_sent $request_time' ; 
+
+
+### How to convert Unstructred Logs To Structued ???/
+```
+    Grok Debugger : This tool can convert the unstructured logs to structued.
+```
+
+### Grok Pattern for the above log :
+
+```
+   %{HTTPDATE:log_timestamp}%{SPACE}%{IP:source_ip}%{SPACE}%{WORD:method}%{SPACE}%{PATH:http_path}%{SPACE}%{WORD:protocol}/%{NUMBER}%{SPACE}%{NUMBER:http_status:int}%{SPACE}%{NUMBER:no_of_bytes_sent:int}%{SPACE}%{NUMBER:response_time:float}
+```
