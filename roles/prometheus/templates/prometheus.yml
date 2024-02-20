@@ -4,25 +4,17 @@ global:
   evaluation_interval: 15s
 alerting:
   alertmanagers:
-  - follow_redirects: true
-    enable_http2: true
-    scheme: http
-    timeout: 10s
-    api_version: v2
-    static_configs:
-    - targets: []
+    - follow_redirects: true
+      enable_http2: true
+      scheme: http
+      timeout: 10s
+      api_version: v2
+      static_configs:
+        - targets: []
 scrape_configs:
-- job_name: service_discovery 
-  ec2_sd_configs: 
-    - region: us-east-1
-      port: 9100
-      filters:
-        - name: "tag:Monitor"
-          values: ["Yes" , "yes"]
-  relabel_configs:
-  - source_labels: [__meta_ec2_instance_id]
-    target_label: instance_id
-  - source_labels: [__meta_ec2_private_ip]
-    target_label: private_ip
-  - source_labels: [__meta_ec2_tag_Name]
-    target_label: instance_name
+  - job_name: prometheus
+    static_configs:
+      - targets: ["localhost:9090"]
+  - job_name: ws
+    static_configs:
+      - targets: ["10.0.0.6:9100"]
